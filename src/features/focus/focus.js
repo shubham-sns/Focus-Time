@@ -8,7 +8,7 @@ import { colors } from "../../utils/colors";
 import { fontSizes, spacing } from "../../utils/sizes";
 
 function Focus({ addSubject }) {
-  const [tempItem, setTempItem] = useState("");
+  const [subject, setSubject] = useState("");
 
   return (
     <View style={styles.container}>
@@ -17,15 +17,15 @@ function Focus({ addSubject }) {
         <View style={styles.inputContainer}>
           <TextInput
             style={{ flex: 1, marginRight: spacing.md }}
-            onSubmitEditing={({ nativeEvent: { text } }) => setTempItem(text)}
+            onSubmitEditing={({ nativeEvent: { text } }) => setSubject(text)}
           />
 
           <RoundedButton
             title="+"
             size={50}
             onPress={() => {
-              addSubject(tempItem);
-              setTempItem("");
+              addSubject(subject);
+              setSubject("");
             }}
           />
         </View>

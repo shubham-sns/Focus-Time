@@ -8,12 +8,16 @@ import { colors } from "./src/utils/colors";
 import { spacing } from "./src/utils/sizes";
 
 export default function App() {
-  const [focusSubject, setFocuSubject] = useState("gardening");
+  const [focusSubject, setFocuSubject] = useState(null);
+
+  const onTimerEnd = () => {
+    setFocuSubject(null);
+  };
 
   return (
     <View style={styles.container}>
       {focusSubject ? (
-        <Timer focusSubject={focusSubject} />
+        <Timer focusSubject={focusSubject} onTimerEnd={onTimerEnd} />
       ) : (
         <Focus addSubject={setFocuSubject} />
       )}
